@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    // This defines what 1rem is
+    // 1rem = 10px; 10px/16px = 62.5%
+    font-size: 62.5%; /* 10px */
+    
+    // Default CSS: 1200px < viewport width < 1600px
+
+    @include respond(large-1) {
+        font-size: 50%; /* 8px */
+    }
+
+    // @include respond(medium-2) {
+    //     font-size: 50%; /* 8px */
+    // }
+
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+    
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}

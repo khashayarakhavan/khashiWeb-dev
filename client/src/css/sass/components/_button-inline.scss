@@ -1,0 +1,31 @@
+// Button Inline Modular
+.btn-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit;
+    border-bottom: .1rem solid currentColor;
+    padding-bottom: .2rem;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+
+    & span {
+        margin-left: .3rem;
+    }
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+        
+        span {
+            margin-left: .8rem;
+            transition: margin-left .2s;
+        }
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite; 
+        
+    }
+}

@@ -1,0 +1,7 @@
+.content {
+    display: flex;
+    
+    @include respond(medium-1) {
+        flex-direction: column;
+    }
+}

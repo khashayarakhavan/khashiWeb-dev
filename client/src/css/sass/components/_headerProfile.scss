@@ -1,0 +1,77 @@
+.user-nav {
+
+    // background-color: red;
+    display: flex;
+    align-items:  center;
+    align-self: stretch;
+    position: relative;
+    
+    & > * {
+        
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        //Vertically
+        align-items: center;
+    }
+
+    & > *:hover {
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__icon-box {
+        padding: 0 2.5rem;
+        position: relative;
+        
+    }
+    // ClearFix to prevent height collapse when using float or position absolute on all the children of a parent
+    &__icon-box::after {
+          content: "";
+          display: table;
+          clear: both;
+    }
+
+    &__icon {
+        @include centerAll;
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: var(--color-grey-dark);
+       
+    }
+
+    &__notification {
+        z-index: $layer-1;
+        font-size: 1rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+        background-color: var(--color-primary-dark);
+        color: $color-white;
+        position: absolute;
+        top: 1.5rem;
+        right: .6rem;
+        display: flex;
+        //Horizontally
+        justify-content: center;
+
+        //Vertically
+        align-items: center;
+    }
+
+    &__user {
+        padding: 0 2rem 0 2rem;
+    }
+
+    &__user-photo {
+        // position: absolute;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        margin-right: 0.25rem;
+
+    }
+
+    &__user-name {
+
+    }
+}

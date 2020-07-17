@@ -1,0 +1,9 @@
+.btn {
+    @include btn-flat;
+}
+
+.card__btn {
+    @include btn-flat;
+    background-color: var(--color-grey-light-4) !important;
+    color: palevioletred !important;
+}

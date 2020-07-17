@@ -1,0 +1,99 @@
+.features {
+    // defining the grid item values
+    grid-column: center-start / center-end;
+    margin: 15rem 0;
+    
+    //degredation check : Grid support
+    @supports (display: grid) {
+        // defining it as a new sub-grid inside the parent grid.
+        display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:  repeat(auto-fit, minmax(21rem, 1fr)) ;
+        grid-gap: 6rem;
+        align-items: start;
+        justify-content: stretch; 
+    }
+}
+
+.feature {
+    // reusable modular design  
+    align-self: stretch;
+
+    //Graceful degradation for users with older browsers like i.e. or Edge or Saffari
+    float: left;
+    width: 33.33333%;
+    margin-bottom: 6rem;
+
+    //degredation check : Grid support
+    @supports (display: grid) {
+        width: auto;
+        margin-bottom: 0;
+    }
+    
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: minmax(6rem, min-content);
+    align-items: start;
+
+    background-color: rgba(182, 125, 144, 0.015);
+    grid-row-gap: 0rem;
+    grid-column-gap: 2rem;
+    
+    line-height: 1.5;
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1/ span 2;
+        transform: translateY(-1rem);
+        align-self: start;
+        
+    }
+
+    &__text {
+        font-size: 1.7rem;
+        align-self: start;
+    }
+}
+
+.features-2 {
+    // defining the grid values and positioning in relation to container grid using column names
+    grid-column: center-start / center-end;
+    margin: 0rem 0;
+    height: min-content;
+    border-top: 5px solid grey;
+    
+    display: flex; // flex lets it to have all items in a single row
+    flex-direction: row;
+    flex-wrap: wrap; // lets the flex to occupy new row when space is not enough
+    justify-content: center; // Horizontally align items inside the flex container
+    align-items: center; // Vertically align items inside the flex container
+}
+
+.feature-2 {
+    // Align items inside the flex item --> change position of icon
+    display: flex; 
+    flex-direction: column; // changing the direction to vertical
+    align-items: center; // centering icons in horizontal
+    justify-content: center; // centering icons in vertical
+    color: $color-primary;
+
+    // defining the size and property of each flex-cell
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(182, 125, 144, 0.025);
+    border-radius: 50%;
+    
+    &__icon {
+        // defining the size of each SVG-icon and its padding
+        margin: .5rem;
+        width: 4rem;
+        height: 4rem;
+        fill: currentColor;
+    }
+
+    &:hover {
+        color: $color-primary-light;
+    }
+}

@@ -1,0 +1,51 @@
+// Recommend Module: This is the code for recommend component
+// This module includes a text and photos of friends who like the same subject.
+
+.recommend {
+    display: flex;
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+    
+    &__friends {
+        display: flex;
+    }
+
+    // Photos are circular and overlap each other in a row
+    &__photo {
+        box-sizing: content-box;
+        background-color: var(--color-grey-light-4);
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: .3rem solid whitesmoke;
+
+        // negative margin to overlap the circles
+        &:not(:last-child) {
+            margin-right: -1.5rem;
+        }
+
+        @include respond(large-1) {
+            &:not(:last-child) {
+                 margin-right: -1.8rem;
+            }   
+        }
+
+        @include respond(large-2) {
+            &:not(:last-child) {
+                 margin-right: -2rem;
+            }   
+        }
+
+        @include respond(small-1) {
+            &:not(:last-child) {
+                 margin-right: -1.5rem;
+            }   
+        }
+        
+    }
+}

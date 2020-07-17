@@ -1,0 +1,39 @@
+.cart-icon {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .nanai-icon {
+    width: 10px;
+    height: 10px;
+    fill: blue;
+  }
+  .shopping-icon {
+    width: 24px;
+    height: 24px;
+    fill: orange;
+  }
+  .trophy-icon {
+    width: 24px;
+    height: 24px;
+    fill: orangered;
+    
+  }
+
+  .item-count {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    bottom: 12px;
+  }
+}
+
+.nanai-icon {
+    width: 30px;
+    height: 30px;
+    fill: yellow;
+  }

@@ -1,0 +1,53 @@
+// Layout of Hotel details page 
+.hotel-view {
+    background-color: #fff;
+    flex: 1;
+}
+
+.hotel-details {
+    display: flex;
+    padding: 4.5rem;
+    background-color: #fff;
+    border-bottom: var(--line);
+
+    @include respond(medium-1) {
+        padding: 3rem;
+    }
+
+    @include respond(small-1) {
+        flex-direction: column;
+    }
+
+}
+
+.description {
+    font-size: 1.4rem;
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+    padding: 3rem;
+    box-shadow: var(--shadow-light);
+
+    @include respond(medium-1) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @include respond(small-1) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+.user-reviews {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+     @include respond(small-1) {
+        
+        flex-direction: column;
+    }
+
+}

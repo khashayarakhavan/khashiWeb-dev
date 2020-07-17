@@ -1,0 +1,95 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin btn-flat {
+    &,
+    &:link,
+    &:visited {
+        background-color: $color-primary;
+        color: #fff;
+        border: none;
+        border-radius: 0;
+        font-family: $font-display;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        padding: 1.8rem 3rem;
+        cursor: pointer;
+        transition: all .3s;
+        
+    }
+
+    &:hover {
+        filter: brightness(130%);   
+        color: rgba(black, 0.55);
+        
+    }
+
+}
+
+@mixin centerAll {
+     position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+
+// Media Query Manager
+
+/* 
+0 - 200px:      Light-Bar
+200 - 600px:    Phone
+600 - 900px:    Tablet Portrait
+900 - 1200px:   Tablet Landscape
+1200 - 1800px:  Desktop First CSS
++1800px:        Desktop Big
+*/
+
+/* Order of responsive design in a Desktop-First Approach 
+(from Large to Small screen size using Max width media query)
+
+ORDER: Base + Typography > General layout + Grid > Page layout > Components
+*/
+
+@mixin respond($breakpoint) {
+    // Browsers' default: 1em = 16px // Medium Font-size
+    
+    @if $breakpoint == lightBar {
+        @media only screen and (max-width: 12.5em) { @content }; // 200px
+    }
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content }; // 600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content }; // 900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content }; // 1200px
+    }
+    @if $breakpoint == desk-big {
+        @media only screen and (min-width: 100em) { @content }; // 1600px
+    }
+    @if $breakpoint == large-1 {
+        @media only screen and (max-width: 75em) { @content }; // 1200px
+    }
+    @if $breakpoint == large-2 {
+        @media only screen and (max-width: 71.875em) { @content }; // 1150px
+    }
+    @if $breakpoint == medium-1 {
+        @media only screen and (max-width: 59.375em) { @content }; // 950px
+    }
+    @if $breakpoint == medium-2 {
+        @media only screen and (max-width: 46.875em) { @content }; // 750px
+    }
+    @if $breakpoint == small-1 {
+        @media only screen and (max-width: 40.625em) { @content }; // 650px
+    }
+    @if $breakpoint == small-2 {
+        @media only screen and (max-width: 34.375em) { @content }; // 550px
+    }
+
+}
