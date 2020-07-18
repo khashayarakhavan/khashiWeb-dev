@@ -1,0 +1,2 @@
+.sidebar{background-color:#eee8aa;grid-column:sidebar-start/sidebar-end;grid-row:1/-1;display:flex;flex-direction:column;justify-content:flex-start;align-items:center}.nav-btn{border:none;outline:none;border-radius:0;background-color:#639;height:2px;width:4.5rem;margin-top:4rem}.nav-btn:after,.nav-btn:before{content:"";display:block;background-color:#fff;height:2px;width:4.5rem}.nav-btn:before{transform:translateY(-1.5rem)}.nav-btn:after{transform:translateY(1.3rem)}
+/*# sourceMappingURL=4.69f42b41.chunk.css.map */
