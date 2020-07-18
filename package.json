@@ -6,13 +6,13 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "client": "cd client && npm run start",
+    "client": "cd frontEnd && npm run start",
     "server": "nodemon index.js",
-    "build": "cd client && npm run build",
+    "build": "cd frontEnd && npm run build",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "test-client": "cd client && npm run test"
+    "heroku-postbuild": "cd frontEnd && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "test-client": "cd frontEnd && npm run test"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

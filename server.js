@@ -3,28 +3,28 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const enforce = require('express-sslify');
-const dotenv = require('dotenv');
+console.log('hello');
+// const dotenv = require('dotenv');
 
-// if (process.env.NODE_ENV !== 'production')
- dotenv.config({ path: "./config.env" });
+// if (process.env.NODE_ENV !== 'production') dotenv.config({ path: "./config.env" });
 
 // const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(cors());
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "development") {
   app.use(express.static(path.join(__dirname, 'client/build')));
-
-  app.get('*', function(req, res) {
+  
+  app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
-  app.use(express.static("client/build"));
+  // app.use(express.static("client/build"));
 
   // // Express will serve up index.html if route isn't recognized
   // const path = require("path");
@@ -33,9 +33,9 @@ if (process.env.NODE_ENV === "production") {
   // });
 }
 
-app.listen(port, error => {
+app.listen(PORT, error => {
   if (error) throw error;
-  console.log('Server running on port ' + port);
+  console.log('Server running on port ' + PORT);
 });
 
 app.get('/service-worker.js', (req, res) => {
@@ -57,3 +57,6 @@ app.get('/service-worker.js', (req, res) => {
 //     }
 //   });
 // });
+
+// [END gae_flex_node_static_files]
+module.exports = app;

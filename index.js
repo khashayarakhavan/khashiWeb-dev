@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 // const mongoose = require('mongoose');
 // const cookieSession = require('cookie-session');
 // const passport = require('passport');
@@ -8,7 +9,8 @@ const app = express();
 const dotenv = require("dotenv");
 const { log } = console;
 
-dotenv.config({ path: './config.env' });
+console.log('the initial NODE ENV IS : ', process.env.NODE_ENV);
+if (process.env.NODE_ENV !== 'production') dotenv.config({ path: './config.env' });
 
 // require('./models/User');
 // require('./models/Survey');
@@ -20,6 +22,7 @@ dotenv.config({ path: './config.env' });
 
 // data parsing -->
 app.use(bodyParser.json());
+app.set("trust proxy", true);
 // <-- data parsing
 
 // //Cookie session -->
@@ -38,17 +41,30 @@ app.use(bodyParser.json());
 // require('./routes/billingRoutes')(app);
 // require('./routes/surveyRoutes')(app);
 // <-- Routing 
-
+// if (1>0) {
 if (process.env.NODE_ENV === 'production') {
+
+  console.log("WOW! I am in production :D ");
+  // app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
     // Express will serve up production assets and files like main.js & main.css
-    app.use(express.static('client/build'));
 
     // Express will serve up index.html if route isn't recognized
-    const path = require('path');
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
+
+// app.configure("production", () => {
+//     // Express will serve up production assets and files like main.js & main.css
+//     app.use(express.static('client/build'));
+
+//     // Express will serve up index.html if route isn't recognized
+//     const path = require('path');
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//     });
+// });
 
 //setup port -->
 const port = process.env.PORT || 5000;

@@ -5,6 +5,8 @@
 /client/node_modules
 /client/.pnp
 /client/.pnp.js
+/frontEnd
+
 
 # testing
 /client/coverage

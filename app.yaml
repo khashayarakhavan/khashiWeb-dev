@@ -13,4 +13,8 @@
 
 # [START gae_quickstart_yaml]
 runtime: nodejs10
+
+env_variables:
+  GCLOUD_STORAGE_BUCKET: YOUR_BUCKET_NAME
+  NODE_ENV: production
 # [END gae_quickstart_yaml]
