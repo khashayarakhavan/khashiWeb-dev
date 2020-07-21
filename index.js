@@ -50,7 +50,7 @@ app.set("trust proxy", true);
 if (process.env.NODE_ENV === 'production') {
 
   console.log("WOW! I am in production :D ");
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  // app.use(enforce.HTTPS({ trustProtoHeader: true }));
   
 }
 
