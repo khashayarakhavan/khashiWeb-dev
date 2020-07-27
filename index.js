@@ -50,13 +50,18 @@ app.set("trust proxy", true);
 if (process.env.NODE_ENV === 'production') {
 
   console.log("WOW! I am in production :D ");
-  // app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   
 }
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 // Express will serve up production assets and files like main.js & main.css
 
+app.get("/firebase-messaging-sw.js", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "client", "build", "firebase-messaging-sw.js")
+  );
+});
 // Express will serve up index.html if route isn't recognized
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
